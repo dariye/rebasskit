@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "npmClient": "npm",
+  "useWorkspaces": true,
+  "ignoreChanges": [
+    "**/__tests__/**",
+    "**/*.md"
+  ],
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "allowBranch": ["master"],
+      "conventionalCommits": true,
+      "message": "chore(release): Publish"
+    }
+  }
+}

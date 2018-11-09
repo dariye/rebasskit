@@ -1,0 +1,103 @@
+{
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/url-loader"
+    ]
+  },
+  "scripts": {
+    "test": "jest",
+    "coverage": "npm test -- --coverage",
+    "lint": "eslint . --ext .js",
+    "dev": "lerna exec --scope rebasskit -- npm run dev",
+    "build": "lerna exex --scope rebasskit* --concurrency 1 --npm run build",
+    "build:clean": "lerna exec --scope rebasskit* --npm run build:clean",
+    "release": "lerna publish",
+    "release:beta": "npm run release -- --npm-tag=beta --preid=beta",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint . --ext js --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-template-literals": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "@storybook/addon-a11y": "^4.0.4",
+    "@storybook/addon-actions": "^4.0.4",
+    "@storybook/addon-backgrounds": "^4.0.4",
+    "@storybook/addon-centered": "^4.0.4",
+    "@storybook/addon-info": "^4.0.4",
+    "@storybook/addon-jest": "^4.0.4",
+    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-links": "^4.0.4",
+    "@storybook/addon-options": "^4.0.4",
+    "@storybook/addon-storysource": "^4.0.4",
+    "@storybook/addon-viewport": "^4.0.4",
+    "@storybook/addons": "^4.0.4",
+    "@storybook/react": "^4.0.4",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.20",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-prettier-standard": "^2.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.1.3",
+    "jest-cli": "^23.6.0",
+    "jest-dom": "^2.1.1",
+    "jest-styled-components": "^6.2.2",
+    "lerna": "^3.4.3",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.14.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-test-renderer": "^16.6.0",
+    "react-testing-library": "^5.2.3",
+    "rebass": "^2.3.4",
+    "rollup": "^0.67.0",
+    "rollup-plugin-analyzer": "^2.1.0",
+    "rollup-plugin-babel": "^4.1.0-0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-ignore": "^1.0.4",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-size-snapshot": "^0.7.0",
+    "rollup-plugin-sizes": "^0.4.2",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "storybook-addon-styled-component-theme": "^1.1.0",
+    "styled-components": "^4.0.3",
+    "styled-system": "^3.1.11"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.1.0"
+  }
+}

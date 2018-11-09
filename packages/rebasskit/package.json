@@ -1,0 +1,35 @@
+{
+  "name": "rebasskit",
+  "version": "1.0.0",
+  "description": "Non-primitive UI components with rebass",
+  "main": "dist/rebasskit.cjs.js",
+  "module": "dist/rebasskit.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "predev": "npm run clean",
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "lint": "eslint src --ext js",
+    "preversion": "npm run lint && npm test && npm run build",
+    "postpublish": "npm run clean"
+  },
+  "keywords": [],
+  "author": "Paul Dariye <paul.dariye@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-system": "^3.1.11",
+    "rebass": "^2.3.4",
+    "styled-components": "^4.0.3"
+  },
+  "devDependencies": {
+    "rollup": "^0.67.0"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^3.1.0",
+    "prop-types": "^15.6.2"
+  }
+}
