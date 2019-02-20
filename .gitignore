@@ -12,3 +12,6 @@ mount-deep-tree-trace.json
 mount-wide-tree-trace.json
 update-dynamic-styles-trace.json
 package-lock.json
+
+.size-snapshot.json
+stats.html

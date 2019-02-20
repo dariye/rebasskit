@@ -1,40 +1,45 @@
 {
   "dist/rebasskit.cjs.js": {
-    "bundled": 20684,
-    "minified": 12570,
-    "gzipped": 3468
+    "bundled": 22454,
+    "minified": 14107,
+    "gzipped": 3883
   },
   "dist/rebasskit.esm.js": {
-    "bundled": 20231,
-    "minified": 12185,
-    "gzipped": 3384,
+    "bundled": 21578,
+    "minified": 13298,
+    "gzipped": 3744,
     "treeshaked": {
       "rollup": {
-        "code": 5816,
-        "import_statements": 132
+        "code": 6689,
+        "import_statements": 248
       },
       "webpack": {
-        "code": 7017
+        "code": 7958
       }
     }
   },
   "dist/rebasskit.browser.cjs": {
-    "bundled": 20684,
-    "minified": 12570,
-    "gzipped": 3468
+    "bundled": 22454,
+    "minified": 14107,
+    "gzipped": 3883
   },
   "dist/rebasskit.browser.esm.js": {
-    "bundled": 20231,
-    "minified": 12185,
-    "gzipped": 3384,
+    "bundled": 21578,
+    "minified": 13298,
+    "gzipped": 3744,
     "treeshaked": {
       "rollup": {
-        "code": 5816,
-        "import_statements": 132
+        "code": 6689,
+        "import_statements": 248
       },
       "webpack": {
-        "code": 7017
+        "code": 7958
       }
     }
+  },
+  "dist/rebasskit.min.js": {
+    "bundled": 16363,
+    "minified": 7718,
+    "gzipped": 2803
   }
 }

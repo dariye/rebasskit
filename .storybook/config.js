@@ -1,3 +1,6 @@
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+
 import { configure, addDecorator } from '@storybook/react';
 import { withActions } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
@@ -8,31 +11,43 @@ import { withTests } from '@storybook/addon-jest';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withOptions } from '@storybook/addon-options';
 import { withViewport } from '@storybook/addon-viewport';
-import { withThemesProvider } from 'storybook-addon-styled-component-theme';
-import centered from '@storybook/addon-centered';
+import { withThemes } from 'storybook-styled-components'
+import defaultTheme from './theme'
 
-const themes = [{ name: 'light' }, { name: 'dark' }]
+const themes = {
+  defaultTheme
+}
 
-const testResults = {}
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+`
 
 addDecorator(withInfo);
 addDecorator(withOptions({
- name: 'RebassKit'
+  name: 'rebasskit',
+  url: 'https://github.com/pauldariye/rebasskit',
+  sortStoriesByKind: true,
 }))
-// addDecorators(withKnobs);
-addDecorator(withThemesProvider(themes));
-addDecorator(centered);
+addDecorator(story => (
+  <div>
+    <GlobalStyle />
+    {story()}
+  </div>
+))
+addDecorator(withThemes(themes));
 addDecorator(withViewport('desktop'))
 addDecorator(checkA11y);
 addDecorator(withBackgrounds([
  { name: 'primary', value: '#white', default: true },
 ]));
+
 // addDecorator(withActions);
 // addDecorator(withTests({results}));
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../stories', true, /.stories.js$/);
 function loadStories() {
+  const req = require.context('../stories', true, /.stories.js$/);
   req.keys().forEach(filename => req(filename));
 }
 

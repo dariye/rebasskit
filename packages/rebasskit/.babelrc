@@ -6,6 +6,7 @@
     "@babel/plugin-external-helpers",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-object-rest-spread",
-    "babel-plugin-styled-components"
+    "@babel/plugin-proposal-export-default-from",
+    ["babel-plugin-styled-components", { "displayName": true }]
   ]
 }

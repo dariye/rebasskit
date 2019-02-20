@@ -7,6 +7,8 @@ import { terser } from 'rollup-plugin-terser'
 import sourceMaps from 'rollup-plugin-sourcemaps'
 import external from 'rollup-plugin-peer-deps-external'
 import builtIns from 'rollup-plugin-node-builtins'
+import { sizeSnapshot } from "rollup-plugin-size-snapshot";
+import visualizer from 'rollup-plugin-visualizer'
 import pkg from './package.json';
 
 const propTypeIgnore = { "import PropTypes from 'prop-types';": "'';" };
@@ -67,6 +69,12 @@ const commonPlugins = [
     __DEV__: JSON.stringify(false),
     __VERSION__: JSON.stringify(pkg.version)
   }),
+  // sizeSnapshot(),
+  // visualizer({
+  //   title: 'rebasskit',
+  //   sourcemap: true,
+  //   open: true
+  // })
 ]
 
 const prodPlugins = [
@@ -76,8 +84,6 @@ const prodPlugins = [
   }),
   terser()
 ]
-
-
 
 const configBase = {
   input: './src/index.js',
